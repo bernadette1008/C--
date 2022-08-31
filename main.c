@@ -32,12 +32,19 @@ int main() {
     int j = 0;// word[j]
 
     printf("문장을 입력해주십시오 : ");
-    scanf_s("%s", &str, sizeof(str));
+    scanf_s("%[^\n]", &str, sizeof(str));
 
     for (int i = 0; i < 999; i++) {
         if (goFirst == TRUE)
             printf("처음으로 돌아옴\n");
         goFirst = FALSE;
+
+        if (str[i] == ' ') {
+            printf("test");
+            word[j] = 32;
+            i++;
+            j++;
+        }
 
         if (str[i] <= 0 && goFirst == FALSE) {
             word[j] = -1;
